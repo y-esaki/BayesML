@@ -541,7 +541,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         hn1_Lambda = np.array(self.hn_lambda_mat)
         hn1_mu = np.array(self.hn_mu_vec)
         self.hn_lambda_mat +=  x.T @ x
-        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y  + hn1_Lambda @ hn1_mu)
+        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y + hn1_Lambda @ hn1_mu)
         self.hn_alpha += n/2.0
         self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
                          + y @ y + hn1_mu @ hn1_Lambda @ hn1_mu) /2.0
@@ -554,7 +554,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         hn1_Lambda = np.array(self.hn_lambda_mat)
         hn1_mu = np.array(self.hn_mu_vec)
         self.hn_lambda_mat +=  x.T @ x
-        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y  + hn1_Lambda @ hn1_mu)
+        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y + hn1_Lambda @ hn1_mu)
         self.hn_alpha += n/2.0
         self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
                          + y @ y + hn1_mu @ hn1_Lambda @ hn1_mu) /2.0
